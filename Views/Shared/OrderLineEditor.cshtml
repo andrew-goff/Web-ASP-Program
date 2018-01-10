@@ -1,0 +1,23 @@
+﻿@using Logistics.Html
+@model Logistics.Models.OrderLine
+
+    <div class="panel panel-default panel-body">
+        @using (Html.BeginCollectionItem("OrderLines"))
+        {
+            <tr>
+                @Html.HiddenFor(model => model.OrderId)
+
+                <td>
+                    @Html.DropDownListFor(model => model.BookId, (IEnumerable<SelectListItem>)ViewBag.BookList, new { @class = "text-box single-line" })
+                    @Html.ValidationMessageFor(model => model.BookId)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Quantity)
+                    @Html.ValidationMessageFor(model => model.Quantity, null, new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "RemoveBook", "Order", new { orderId = Model.OrderId, bookId = Model.BookId }, new { @class = "text-box single-line" })
+                </td>
+            </tr>
+        }
+    </div>

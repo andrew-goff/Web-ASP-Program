@@ -1,0 +1,16 @@
+﻿@using Logistics.Html
+@model Logistics.Models.OrderLine
+
+    <div class="panel panel-default panel-body">
+        @using (Html.BeginCollectionItem("OrderLines"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Book.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Quantity)
+                </td>
+            </tr>
+        }
+    </div>

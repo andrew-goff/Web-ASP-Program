@@ -1,0 +1,112 @@
+﻿@model Logistics.Models.Book
+ 
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+    <fieldset>
+        <legend>Book</legend>
+    <table>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Title, "Title", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.PublicationDate)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PublicationDate, "Publication Date", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Format)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Format, "Format", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.ISBN)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+        @Html.DisplayFor(model => model.ISBN, "ISBN", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Author.Publisher)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+        @Html.DisplayFor(model => model.Author.Publisher, "Publisher", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+        @Html.DisplayFor(model => model.Supplier.SupplierName, "Supplier Name", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+        @Html.DisplayFor(model => model.Price, "Price", new { @class = "control-label col-md-10" })
+        </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.Stock)
+        </div>
+            </td>
+            <td>
+        <div class="display-field">
+        @Html.DisplayFor(model => model.Stock, new { @class = "control-label col-md-10" })
+        </div>
+        </tr>
+</table>
+    </fieldset>
+    <p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+    </p>

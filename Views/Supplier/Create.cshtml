@@ -1,0 +1,44 @@
+﻿@model Logistics.Models.Supplier
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Supplier</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupplierName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupplierName)
+            @Html.ValidationMessageFor(model => model.SupplierName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupplierAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupplierAddress)
+            @Html.ValidationMessageFor(model => model.SupplierAddress)
+        </div>
+
+        <p>
+            <input type="submit" value="Add a Supplier" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

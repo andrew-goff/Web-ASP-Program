@@ -1,0 +1,69 @@
+﻿@using Logistics.Models
+@model Logistics.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Store</legend>
+    <table>
+        <tr>
+            <td>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StoreOwner)
+    </div>
+            </td>
+            <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StoreOwner)
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StoreAddress)
+    </div>
+            </td>
+            <td>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StoreAddress)
+    </div>
+            </td>
+        </tr>
+</table>
+</fieldset>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Order Number
+            </th>
+            <th>
+                Order Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Orders != null)
+        {
+            foreach (Order order in Model.Orders)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => order.OrderNumber)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.StoreId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

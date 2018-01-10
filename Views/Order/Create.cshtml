@@ -1,0 +1,66 @@
+﻿@using Logistics.Models
+@model Logistics.Models.Order
+
+@{
+    ViewBag.Title = "Order Book Form";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Stock Order Form</legend>
+
+        <table>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.OrderNumber, "Order Number")
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.OrderNumber)
+                        @Html.ValidationMessageFor(model => model.OrderNumber)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.StoreId, "Store")
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.StoreId, (IEnumerable<SelectListItem>)ViewBag.StoreList, new { @class = "text-box single-line" })
+                        @Html.ValidationMessageFor(model => model.StoreId)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

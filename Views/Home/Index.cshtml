@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Book Logistics Site";
+}
+@section featured {
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+        </hgroup>
+    </div>
+</section>
+<html>
+    <body>
+        @{
+            if (Context.User.Identity.IsAuthenticated)
+            {
+                <ol>
+                    <li>@Html.ActionLink("Authors", "Index", "Author")</li>
+                    <li>@Html.ActionLink("Books", "Index", "Book")</li>
+                    <li>@Html.ActionLink("Stores", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                    <li>@Html.ActionLink("Suppliers", "Index", "Supplier")</li>
+                </ol>
+            }
+        }
+    </body>
+</html>
+}

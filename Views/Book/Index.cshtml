@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Logistics.Models.Book>
+
+@{
+    ViewBag.Title = "Book Index Page";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+        @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.PublicationDate)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.Format)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.ISBN)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.Author.Publisher)
+        </th>
+        <th>
+        @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </th>
+    <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Format)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+            </td>
+            <td>     
+                @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Back", "Index", "Home")
+</p>
